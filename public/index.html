@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Clash Multiplayer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">REAL-TIME QUIZ ARENA</p>
+        <h1>Mind <span>Clash</span></h1>
+        <p class="tagline">Think fast. Outscore your friends.</p>
+      </header>
+
+      <p id="status" class="status" aria-live="polite">Connect to begin.</p>
+
+      <section id="welcomeScreen" class="card screen">
+        <h2>Welcome, challenger!</h2>
+        <p>Pick a name, join the lobby, and get ready to clash minds.</p>
+        <label for="nameInput">Your display name</label>
+        <input id="nameInput" maxlength="20" placeholder="For example: Alex" autocomplete="nickname" />
+        <button id="joinButton" class="primary">Join the lobby</button>
+      </section>
+
+      <section id="lobbyScreen" class="screen hidden">
+        <div class="card lobby-card">
+          <div class="section-heading">
+            <div><p class="eyebrow">WAITING ROOM</p><h2>Match Lobby</h2></div>
+            <span id="hostBadge" class="badge hidden">You are host</span>
+          </div>
+          <p>Your unique player ID: <code id="playerId">—</code></p>
+          <div id="playersList" class="players-list"></div>
+          <button id="startButton" class="primary hidden">Start Game</button>
+          <p id="startHint" class="hint">Waiting for the host to start the game.</p>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen hidden">
+        <div class="game-layout">
+          <article class="card question-card">
+            <p id="roundLabel" class="eyebrow">ROUND 1</p>
+            <h2 id="questionText">Question appears here</h2>
+            <div id="answers" class="answers"></div>
+            <p id="answerNote" class="hint" aria-live="polite"></p>
+          </article>
+          <aside class="card scoreboard-card">
+            <p class="eyebrow">LIVE SCORES</p>
+            <h2>Scoreboard</h2>
+            <div id="scoreboard" class="scoreboard"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="resultsScreen" class="card screen hidden">
+        <p class="eyebrow">MATCH COMPLETE</p>
+        <h2 id="winnerMessage">Winner</h2>
+        <div id="finalScores" class="scoreboard"></div>
+        <button id="playAgainButton" class="primary hidden">Return to lobby</button>
+        <p id="resultsHint" class="hint"></p>
+      </section>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

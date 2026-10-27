@@ -1,0 +1,7 @@
+# Installed packages can be recreated with npm install.
+node_modules/
+
+# Local environment files and debug logs.
+.env
+.env.*
+npm-debug.log*
